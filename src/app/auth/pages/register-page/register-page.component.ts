@@ -37,6 +37,8 @@ export class RegisterPageComponent {
     ],
     password: ['', [Validators.required, Validators.minLength(6)]],
     password2: ['', Validators.required],
+  }, {
+    validators: [ this.validatorSrv.isEqualTo('password', 'password2') ]
   });
 
   constructor(
