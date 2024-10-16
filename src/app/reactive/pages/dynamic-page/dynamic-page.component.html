@@ -26,8 +26,10 @@
                        placeholder="Agregar favorito">
 
 
-                <button class="btn btn-outline-primary"
-                        type="button">
+                <button
+                  class="btn btn-outline-primary"
+                  type="button"
+                >
                     Agregar favorito
                 </button>
             </div>
@@ -47,8 +49,11 @@
                       class="form-control"
                       [formControlName]="i" />
 
-                    <button class="btn btn-outline-danger"
-                            type="button">
+                    <button
+                      class="btn btn-outline-danger"
+                      type="button"
+                      (click)="onDeleteFavorite(i)"
+                    >
                       Eliminar
                   </button>
                 </div>
