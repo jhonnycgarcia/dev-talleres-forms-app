@@ -6,6 +6,9 @@ import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@ang
   styles: ``
 })
 export class DynamicPageComponent {
+  /**
+   * https://v16.angular.io/guide/reactive-forms
+   */
 
   public myForm: FormGroup = this.fb.group({
     name: ['', [Validators.required, Validators.minLength(3)]],
