@@ -34,11 +34,15 @@ export class BasicPageComponent implements OnInit {
     });
   }
   ngOnInit(): void {
-    this.myForm.reset(rtx5090);
+    // this.myForm.reset(rtx5090);
   }
 
   onSave(): void {
-    if(!this.myForm.valid) { return; }
+    if(!this.myForm.valid) {
+      this.myForm.markAllAsTouched();
+      return;
+    }
+
     console.log({form: this.myForm.value});
     this.myForm.reset({
       price: 10,
