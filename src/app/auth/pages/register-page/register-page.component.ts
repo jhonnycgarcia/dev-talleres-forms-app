@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ValidatorsService } from '../../../shared/services/validators.service';
+import { EmailValidator } from '../../../shared/validators/email-validator.service';
 
 @Component({
   templateUrl: './register-page.component.html',
@@ -14,13 +15,17 @@ export class RegisterPageComponent {
       [
         Validators.required,
         Validators.pattern(this.validatorSrv.firstNameAndLastnamePattern)
-      ]
+      ],
     ],
     email: [
       '',
       [
         Validators.required,
         Validators.pattern(this.validatorSrv.emailPattern)
+      ],
+      [
+        // new EmailValidator()
+        this.emailValidator
       ]
     ],
     username: [
@@ -36,7 +41,8 @@ export class RegisterPageComponent {
 
   constructor(
     private fb: FormBuilder,
-    private validatorSrv: ValidatorsService
+    private validatorSrv: ValidatorsService,
+    private emailValidator: EmailValidator
   ) { }
 
   isValidField(field: string): boolean | null {
